@@ -65,8 +65,8 @@ DIGIT [0-9]
 
    /* Identifiers and Numbers */
 
-[a-zA-Z][a-zA-Z0-9]*[a-zA-Z0-9]  {printf("IDENT\n"); currPos += yyleng;} //work on this later
 
+([a-zA-z])|([a-zA-Z][a-zA-Z0-9_]*[a-zA-Z0-9])  {printf("IDENT\n"); currPos += yyleng;}
 
 (\.{DIGIT}+)|({DIGIT}+(\.{DIGIT}*)?([eE][+-]?[0-9]+)?) {printf("NUMBER %s\n", yytext); currPos += yyleng;}
 
@@ -81,8 +81,12 @@ DIGIT [0-9]
 "]" {printf("R_SQUARE_BRACKET\n"); currPos += yyleng;}
 ":=" {printf("ASSIGN\n"); currPos += yyleng;}
 
+
 [ \t]+ {currPos += yyleng;}
+"##".*  {currPos = 0;}
+
 "\n" {currLine++; currPos = 0;}
+ 
 
    /* Error Rules */
 

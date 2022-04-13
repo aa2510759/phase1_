@@ -10,5 +10,9 @@ miniL: miniL-lex.o
 miniL-lex.c: miniL.lex
 	flex -o $@ $< 
 
+parse: miniL.lex
+	flex miniL.lex
+	gcc lex.yy.c -lfl
+
 clean:
 	rm -f *.o miniL-lex.c miniL
