@@ -66,7 +66,7 @@ DIGIT [0-9]
    /* Identifiers and Numbers */
 
 
-[a-zA-Z]([a-zA-Z0-9_]*[a-zA-Z0-9])*  {printf("IDENT\n"); currPos += yyleng;}
+[a-zA-Z]([a-zA-Z0-9_]*[a-zA-Z0-9])*  {printf("IDENT %s\n", yytext); currPos += yyleng;}
 
 (\.{DIGIT}+)|({DIGIT}+(\.{DIGIT}*)?([eE][+-]?[0-9]+)?) {printf("NUMBER %s\n", yytext); currPos += yyleng;}
 

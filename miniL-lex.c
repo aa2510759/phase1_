@@ -1064,7 +1064,7 @@ YY_RULE_SETUP
 case 41:
 YY_RULE_SETUP
 #line 69 "miniL.lex"
-{printf("IDENT\n"); currPos += yyleng;}
+{printf("IDENT %s\n", yytext); currPos += yyleng;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
